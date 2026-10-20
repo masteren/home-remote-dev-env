@@ -1,0 +1,12 @@
+# /etc/frp/frps.toml
+# クラウドサーバー側の frp サーバー設定。
+# 起動:
+#   sudo docker run --restart=always --network host -d \
+#     -v /etc/frp/frps.toml:/etc/frp/frps.toml --name frps snowdreamtech/frps
+#
+# ファイアウォールで開放するポート:
+#   TCP 7000 … frpc からの接続
+#   TCP 6022 … 外部から Raspberry Pi の SSH への接続
+
+bindPort = 7000
+auth.token = "<FRP_TOKEN>"

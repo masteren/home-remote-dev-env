@@ -1,0 +1,14 @@
+# 実際の設定ファイル・鍵はコミットしない（*.example のみ管理）
+*.toml
+!*.toml.example
+server/rustdesk/data/
+id_*
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store

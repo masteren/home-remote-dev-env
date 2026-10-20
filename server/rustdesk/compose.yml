@@ -1,0 +1,25 @@
+# RustDesk の ID サーバー (hbbs) と中継サーバー (hbbr)。
+# 起動: sudo docker compose up -d
+# クライアントに設定する公開鍵: cat ./data/id_ed25519.pub
+#
+# ファイアウォールで開放するポート:
+#   TCP 21115-21117
+#   UDP 21116
+
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:latest
+    command: hbbs
+    volumes:
+      - ./data:/root
+    network_mode: host
+    depends_on:
+      - hbbr
+    restart: unless-stopped
+  hbbr:
+    image: rustdesk/rustdesk-server:latest
+    command: hbbr
+    volumes:
+      - ./data:/root
+    network_mode: host
+    restart: unless-stopped

@@ -1,0 +1,17 @@
+# ~/.ssh/config に追記する
+
+# Raspberry Pi（Tailscale 経由・主経路）
+Host pi
+    HostName <PI_TAILSCALE_IP>
+    User <PI_USER>
+
+# Raspberry Pi（frp 経由・予備経路）
+Host pi-frp
+    HostName <SERVER_PUBLIC_IP>
+    Port 6022
+    User <PI_USER>
+
+# Windows デスクトップ（Tailscale 経由）
+Host winpc
+    HostName <PC_TAILSCALE_IP>
+    User <WINDOWS_USER>

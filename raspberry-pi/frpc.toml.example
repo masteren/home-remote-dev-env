@@ -1,0 +1,14 @@
+# /etc/frp/frpc.toml
+# Raspberry Pi からクラウドサーバーの frps へ外向きに接続し、
+# Pi の SSH (22) をサーバーの remotePort で公開する。
+
+serverAddr = "<SERVER_PUBLIC_IP>"
+serverPort = 7000
+auth.token = "<FRP_TOKEN>"   # openssl rand -hex 16 で生成し、frps と同じ値にする
+
+[[proxies]]
+name = "pi-ssh"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 22
+remotePort = 6022
